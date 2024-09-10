@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remote Control</title>
+    <style>
+		body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .remote-control {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch; /* Ensures buttons take up full width */
+            justify-content: center;
+            width: 200px; /* Adjust panel width */
+            height: 420px;
+            background-color: #333;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 0; /* Remove padding */
+        }
+
+        .remote-control button {
+            width: 100%; /* Ensures button takes 100% of container width */
+            padding: 15px;
+            margin: 0; /* Remove margin for the buttons */
+            border: none;
+            border-radius: 0; /* Remove border radius to make buttons touch the edges */
+            background-color: #555;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .remote-control button:hover {
+            background-color: #777;
+        }
+        .remote-control button:active {
+            background-color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="remote-control">
+        <form action="{{ url_for('button_action', button='on') }}">
+            <button type="submit">16 on</button>
+        </form>
+        <form action="{{ url_for('button_action', button='off') }}">
+            <button type="submit">off</button>
+        </form>
+        <form action="{{ url_for('button_action', button='strong') }}">
+            <button type="submit">16 turbo</button>
+        </form>
+        <form action="{{ url_for('button_action', button='16') }}">
+            <button type="submit">t16</button>
+        </form>
+        <form action="{{ url_for('button_action', button='22') }}">
+            <button type="submit">t22</button>
+        </form>
+        <form action="{{ url_for('button_action', button='26') }}">
+            <button type="submit">t26</button>
+        </form>
+    </div>
+</body>
+</html>
